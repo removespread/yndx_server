@@ -23,8 +23,9 @@ export class ShokMainPage {
         await this.page.goto("/");
     }
 
-    public async clickEmailInput() {
+    public async fillEmailInput(email: string) {
         await this.emailInput.click();
+        await this.emailInput.fill(email);
     }
 
     public async clickCheckButton() {
@@ -36,8 +37,7 @@ export class ShokMainPage {
     }
 
     public async checkUser(email: string) {
-        await this.clickEmailInput();
-        await this.emailInput.fill(email);
+        await this.fillEmailInput(email);
         await this.clickCheckButton();
     }
 }

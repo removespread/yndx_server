@@ -25,12 +25,14 @@ export class ShokLoginPage {
         await this.page.goto('/login');
     }
 
-    public async clickEmailInput() {
+    public async fillEmailInput(email: string) {
         await this.emailInput.click();
+        await this.emailInput.fill(email);
     }
 
-    public async clickPasswordInput() {
+    public async fillPasswordInput(password: string) {
         await this.passwordInput.click();
+        await this.passwordInput.fill(password);
     }
 
     public async clickLoginButton() {
@@ -46,10 +48,8 @@ export class ShokLoginPage {
     }
 
     public async Login(email: string, password: string) {
-        await this.clickEmailInput();
-        await this.emailInput.fill(email);
-        await this.clickPasswordInput();
-        await this.passwordInput.fill(password);
+        await this.fillEmailInput(email);
+        await this.fillPasswordInput(password);
         await this.clickLoginButton();
     }
 
