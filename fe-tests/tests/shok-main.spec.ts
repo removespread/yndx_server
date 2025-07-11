@@ -1,0 +1,52 @@
+import { expect } from '@playwright/test';
+import { test } from '../fixtures/index';
+import { FakeEmail, ValidUserData } from '../constants/userData';
+import { ShokLoginPage } from '../fixtures/ShokLoginPage';
+
+test.describe('Элементы страницы', () => {
+    test('Проверка элементов страницы', async ({ mainPage }) => {
+        await test.step('Проверка заголовка', async () => {
+        await expect(mainPage.title).toBeVisible();
+        });
+        await test.step('Проверка поля ввода email', async () => {
+            await expect(mainPage.emailInput).toBeVisible();
+        });
+        await test.step('Проверка плейсхолдера поля ввода email', async () => {
+            await expect(mainPage.emailInput).toHaveAttribute('placeholder', 'Введите email');
+        });
+        await test.step('Проверка кнопки проверки', async () => {
+            await expect(mainPage.checkButton).toBeVisible();
+        });
+        await test.step('Проверка кнопки входа', async () => {
+            await expect(mainPage.loginButton).toBeVisible();
+        });
+    });
+});
+
+test.describe('Авторизация', () => {
+    test('Проверка авторизации', async ({ mainPage }) => {
+        await test.step('Проверка зарегистрированного пользователя', async () => {
+            await mainPage.checkUser(ValidUserData.email);
+            await expect(mainPage.positiveResultText).toBeVisible();
+        });
+        await test.step('Проверка не зарегистрированного пользователя', async () => {
+            await mainPage.checkUser(FakeEmail);
+            await expect(mainPage.negativeResultText).toBeVisible();
+        });
+    });
+});
+
+test.describe('Проверка кнопок', () => {
+    test('Проверка кнопки входа', async ({ mainPage }) => {
+        await test.step('Проверка кнопки входа', async () => {
+            await expect(mainPage.loginButton).toBeVisible();
+            await expect(mainPage.loginButton).toBeEnabled();
+        });
+    });
+    test('Проверка кнопки проверки', async ({ mainPage }) => {
+        await test.step('Проверка кнопки проверки', async () => {
+            await expect(mainPage.checkButton).toBeVisible();
+            await expect(mainPage.checkButton).toBeEnabled();
+        });
+    });
+});
