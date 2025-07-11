@@ -1,5 +1,4 @@
 import { Page, Locator } from '@playwright/test';
-import { faker } from '@faker-js/faker';
 
 export class ShokLoginPage {
     public title: Locator;
@@ -53,5 +52,5 @@ export class ShokLoginPage {
         await this.passwordInput.fill(password);
         await this.clickLoginButton();
     }
-    
+
 }
