@@ -1,7 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../fixtures/index';
 import { FakeEmail, ValidUserData } from '../constants/userData';
-import { ShokLoginPage } from '../fixtures/ShokLoginPage';
 
 test.describe('Элементы страницы', () => {
     test('Проверка элементов страницы', async ({ mainPage }) => {

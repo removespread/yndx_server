@@ -12,3 +12,4 @@ export const FakeUserData = {
 
 export const FakeEmail = faker.internet.email();
 export const FakePassword = faker.internet.password();
+export const FakeAge = faker.number.int({ min: 1, max: 100 }).toString();
