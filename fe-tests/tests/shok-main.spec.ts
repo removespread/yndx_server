@@ -48,4 +48,13 @@ test.describe('Проверка кнопок', () => {
             await expect(mainPage.checkButton).toBeEnabled();
         });
     });
+
+test.describe('Проверка функциональности кнопок', () => {
+    test('Проверка кнопки входа', async ({ mainPage, page }) => {
+        await test.step('Проверка кнопки входа', async () => {
+            await mainPage.loginButton.click();
+            await expect(page.url()).toContain('/login');
+        });
+    });
+});
 });

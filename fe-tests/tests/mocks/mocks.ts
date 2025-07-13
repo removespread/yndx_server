@@ -1,4 +1,4 @@
-const profileStatusMock = {
+export const profileYoungStatusMock = {
     "flags": {
           "age": {
               "enabled": true,
@@ -19,4 +19,27 @@ const profileStatusMock = {
           }
       }
 }
+
+export const profileOldStatusMock = {
+    "flags": {
+          "age": {
+              "enabled": true,
+              "young": {
+                  "from": 22,
+                  "to": 68
+              },
+              "adult": {
+                  "from": 0,
+                  "to": 21
+              },
+              "old": {
+                  "from": 69,
+                  "to": 99
+              },
+              "oldFrom": 2,
+              "youngFrom": 16
+          }
+      }
+}
+
 

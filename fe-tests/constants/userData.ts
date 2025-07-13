@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 
 export const ValidUserData = {
-    email: "v@removespread.ru",
+    email: "maintest@removespread.ru",
     password: "Qwerty123",
 };
 

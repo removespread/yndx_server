@@ -9,6 +9,7 @@ export class ShokLoginPage {
     public registrationButton: Locator;
     public errorEmailText: Locator;
     public errorPasswordText: Locator;
+    public failedLoginText: Locator;
 
     constructor(public readonly page: Page) {
         this.title = this.page.getByText("Войти в ШОК", { exact: true });
@@ -19,6 +20,7 @@ export class ShokLoginPage {
         this.registrationButton = this.page.getByTestId("login-register-button");
         this.errorEmailText = this.page.getByText("Введите email", { exact: true });
         this.errorPasswordText = this.page.getByText("Введите пароль", { exact: true });
+        this.failedLoginText = this.page.getByText("Неправильный логин или пароль", { exact: true });
     }
 
     public async open() {
@@ -33,6 +35,16 @@ export class ShokLoginPage {
     public async fillPasswordInput(password: string) {
         await this.passwordInput.click();
         await this.passwordInput.fill(password);
+    }
+
+    public async clearEmailInput() {
+        await this.emailInput.click();
+        await this.emailInput.clear();
+    }
+
+    public async clearPasswordInput() {
+        await this.passwordInput.click();
+        await this.passwordInput.clear();
     }
 
     public async clickLoginButton() {
