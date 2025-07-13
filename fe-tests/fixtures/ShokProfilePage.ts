@@ -12,10 +12,10 @@ export class ShokProfilePage {
     public logoutButton: Locator;
 
     constructor(public readonly page: Page) {
-        this.profilePhoto = this.page.locator('div[data-expoimage="true"]');
-        this.profileName = this.page.locator('div[xpath="1"]');
+        this.profilePhoto = this.page.getByTestId('user-avatar').getByRole('img')
+        this.profileName = this.page.locator('div[class="css-146c3p1 r-vw2c0b r-15zivkp r-evnaw"]');
         this.profileStatus = this.page.locator('div[class="css-146c3p1 r-1khnkhu r-15d164r r-ubezar"]');
-        this.editProfileButton = this.page.locator('user-edit-profile-button');
+        this.editProfileButton = this.page.getByText('Edit Profile')
         this.firstPhoto = this.page.getByTestId('gallery-item-0');
         this.secondPhoto = this.page.getByTestId('gallery-item-1');
         this.thirdPhoto = this.page.getByTestId('gallery-item-2');
@@ -24,7 +24,8 @@ export class ShokProfilePage {
     }
 
     public async open() {
-        
+
+        await this.page.goto("/");
     }
 
 }

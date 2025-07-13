@@ -46,3 +46,6 @@ ssl/
 
 # Misc
 .DS_Store
+
+# Playwright
+/fe-tests/tests/setup/authorization.json

@@ -1,16 +1,16 @@
+import { test as base } from "@playwright/test";
 import { ShokMainPage } from "./ShokMainPage";
 import { ShokLoginPage } from "./ShokLoginPage";
-import { test as base } from "@playwright/test";
-import { ShokRenamePage } from "./ShokRenamePage";
-import { ShokProfilePage } from "./ShokProfilePage";
 import { ShokRegistrationPage } from "./ShokRegistrationPage";
+import { ShokProfilePage } from "./ShokProfilePage";
+import { ShokRenamePage } from "./ShokRenamePage";
 
 type MyFixtures = {
     mainPage: ShokMainPage;
     loginPage: ShokLoginPage;
-    renamePage: ShokRenamePage;
-    profilePage: ShokProfilePage;
     registrationPage: ShokRegistrationPage;
+    profilePage: ShokProfilePage;
+    renamePage: ShokRenamePage;
 }
 
 export const test = base.extend<MyFixtures>({
@@ -24,20 +24,19 @@ export const test = base.extend<MyFixtures>({
         await loginPage.open();
         await use(loginPage);
     },
-    renamePage: async ({ page }, use) => {
-        const renamePage = new ShokRenamePage(page);
-        await renamePage.open();
-        await use(renamePage);
+    registrationPage: async ({ page }, use) => {
+        const registrationPage = new ShokRegistrationPage(page);
+        await registrationPage.open();
+        await use(registrationPage);
     },
     profilePage: async ({ page }, use) => {
         const profilePage = new ShokProfilePage(page);
         await profilePage.open();
         await use(profilePage);
     },
-    registrationPage: async ({ page }, use) => {
-        const registrationPage = new ShokRegistrationPage(page);
-        await registrationPage.open();
-        await use(registrationPage);
+    renamePage: async ({ page }, use) => {
+        const renamePage = new ShokRenamePage(page);
+        await renamePage.open();
+        await use(renamePage);
     }
-    
 });

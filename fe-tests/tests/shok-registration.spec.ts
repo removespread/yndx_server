@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../fixtures/index';
-import { FakeAge, FakeEmail, FakePassword, ValidUserData } from '../constants/userData';
+import { FakeAge, FakeEmail, FakePassword, FakeUserData, ValidUserData } from '../constants/userData';
 
 test.describe('Элементы страницы', () => {
     test('Проверка элементов страницы', async ({ registrationPage }) => {
@@ -101,12 +101,11 @@ test.describe('Проверка позитивных пользовательс�
     test('Проверка регистрации с корректными данными', async ({ registrationPage }) => {
         await test.step('Проверка регистрации с корректными данными', async () => {
             await registrationPage.page.waitForTimeout(1000);
-            await registrationPage.fillEmailInput(FakeEmail);
-            await registrationPage.fillPasswordInput(FakePassword);
-            await registrationPage.fillAgeInput(FakeAge);
+            await registrationPage.fillEmailInput(FakeUserData.email);
+            await registrationPage.fillPasswordInput(FakeUserData.password);
+            await registrationPage.fillAgeInput(FakeUserData.age);
             await registrationPage.clickRegisterButton();
-
-            // TO-DO: Добавить проверку на переход на страницу авторизации
         });
     });
 });
+

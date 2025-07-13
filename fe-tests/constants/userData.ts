@@ -8,6 +8,7 @@ export const ValidUserData = {
 export const FakeUserData = {
     email: faker.internet.email(),
     password: faker.internet.password(),
+    age: faker.number.int({ min: 1, max: 100 }).toString(),
 }
 
 export const FakeEmail = faker.internet.email();

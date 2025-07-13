@@ -12,7 +12,7 @@ export class ShokMainPage {
         this.title = this.page.getByText("Я в ШОКе", { exact: true });
         this.emailInput = this.page.getByTestId("main-email-input");
         this.checkButton = this.page.getByTestId("main-check-button");
-        this.loginButton = this.page.getByTestId("main-login-button");
+        this.loginButton = this.page.getByTestId('main-login-button')
         this.positiveResultText = this.page.getByText("Ты уже в ШОКе", { exact: true });
         this.negativeResultText = this.page.getByText("Ты еще не в ШОКе", { exact: true });
     }

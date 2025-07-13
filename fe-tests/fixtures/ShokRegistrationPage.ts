@@ -37,6 +37,7 @@ export class ShokRegistrationPage {
         await this.emailInput.click();
         await this.emailInput.fill(email);
     }
+    
 
     public async fillPasswordInput(password: string) {
         await this.passwordInput.click();
