@@ -24,6 +24,7 @@
     "@types/pg": "^8.11.11",
     "@typescript-eslint/eslint-plugin": "^8.33.0",
     "@typescript-eslint/parser": "^8.33.0",
+    "@wdio/types": "^9.16.2",
     "bun-types": "latest",
     "drizzle-kit": "^0.30.6",
     "eslint": "^9.28.0",
@@ -31,7 +32,8 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.4.1",
     "prettier": "^3.5.3",
-    "tsx": "^4.19.3"
+    "tsx": "^4.19.3",
+    "webdriverio": "^9.17.0"
   },
   "module": "src/index.js"
 }
